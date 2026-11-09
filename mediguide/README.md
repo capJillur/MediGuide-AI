@@ -1,58 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 🩺 MediGuide AI
 
-## About Laravel
+**A role-based healthcare navigation platform with secure onboarding, OTP verification, and an admin-controlled doctor approval workflow.**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
+![PHPUnit](https://img.shields.io/badge/Tested_with-PHPUnit-3C9CD7)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🎯 About
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+MediGuide AI helps patients find the right care and gives clinicians a verified place on the platform. I built the full foundation end to end: database design, authentication and authorization, server-rendered UI, admin tooling, and automated tests.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ✨ Highlights
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- **Three-role system**: separate patient, doctor, and admin portals with role-based access control
+- **Email OTP verification**: 6-digit codes, hashed at rest, expiring in 10 minutes, with resend
+- **Doctor approval workflow**: doctors can register, but cannot sign in until an admin approves them
+- **Admin dashboard**: search, paginate, edit, approve, and delete accounts
+- **Secure password reset**: token-based, and scoped so a reset link only works for the right portal
+- **Tested**: feature tests covering the approval and password-reset flows
 
-## Agentic Development
+## 🛠 Tech Stack
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+| Area | Tools |
+| --- | --- |
+| Backend | PHP 8.3, Laravel 13, Eloquent ORM |
+| Database | MySQL (SQLite for quick local setup) |
+| Frontend | Blade templates, custom responsive CSS |
+| Auth | Session auth, custom role middleware, bcrypt hashing |
+| Testing | PHPUnit 12 |
+| Tooling | Composer, Laravel Pint, Artisan |
+
+## 🔐 Engineering Highlights
+
+- Role-gated middleware returning `403` for unauthorized access
+- Session regeneration on login and full invalidation on logout
+- Hashed OTPs and hidden sensitive model attributes
+- Portal-scoped authentication so credentials from one portal never work in another
+- Server-side validation on every form, with admin accounts protected from edit and delete
+
+## 🚀 Quick Start
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone <your-repo-url> && cd mediguide
+composer install
+cp .env.example .env && php artisan key:generate
+# configure DB_* in .env (or use SQLite)
+php artisan migrate --seed
+php artisan serve
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Open **http://localhost:8000**. Run the tests with `php artisan test`.
 
-## Contributing
+## 📸 Screenshots
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![MediGuide AI homepage](public/images/Screenshot%202026-11-09%20232846.png)
 
-## Code of Conduct
+![Clinical trust and security](public/images/Screenshot%202026-11-09%20233019.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![Patient and doctor portals](public/images/Screenshot%202026-11-09%20233037.png)
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🗺 Roadmap
 
-## License
+- [ ] Doctor directory and specialty search
+- [ ] Appointment booking with conflict prevention
+- [ ] Diagnostic tests and labs catalogue
+- [ ] AI care guide for symptom-to-specialty navigation
+- [ ] Rate limiting, audit logging, CI pipeline
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 👤 Author
+
+**Md Jillur Rahman**
+[LinkedIn](https://linkedin.com/in/md-jillur-rahm) · [GitHub](https://github.com/capJillur) · jrrahman0322@gmail.com
+
+## 📄 License
+
+Released under the [MIT License](https://opensource.org/licenses/MIT).
