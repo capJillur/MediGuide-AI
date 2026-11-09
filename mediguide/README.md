@@ -61,11 +61,11 @@ Open **http://localhost:8000**. Run the tests with `php artisan test`.
 
 ## 📸 Screenshots
 
-![MediGuide AI homepage](public/images/Screenshot%202026-11-09%20232846.png)
+![MediGuide AI homepage](public/images/homepage.png)
 
-![Clinical trust and security](public/images/Screenshot%202026-11-09%20233019.png)
+![Clinical trust and security](public/images/clinical-trust.png)
 
-![Patient and doctor portals](public/images/Screenshot%202026-11-09%20233037.png)
+![Patient and doctor portals](public/images/portals.png)
 
 
 ## 🗺 Roadmap
